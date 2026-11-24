@@ -1,0 +1,55 @@
+---
+title: "Static first: most sites don't need a server"
+date: "2026-10-09"
+description: "A practical look at when static output is the right default, and the small number of cases where it isn't."
+tags: ["Performance", "Architecture"]
+cover: "/covers/static-first.svg"
+coverAlt: "Night skyline of red bars under an amber moon with soft waves"
+---
+
+The fastest request is the one your server never has to think about. Static files served from a plain web server are hard to beat on speed, cost and reliability, and they're a better default than many of us admit.
+
+## What static really means
+
+Static doesn't mean "no JavaScript" or "no data". It means the HTML is produced **at build time**, once, instead of on every request. You can still fetch data in the browser, submit forms to an API, and update content as often as you like by rebuilding.
+
+```bash
+# Build once, then serve the folder from anywhere
+pnpm build
+npx serve out
+```
+
+## When static is the right call
+
+- Blogs, docs, portfolios and marketing sites
+- Dashboards that talk to an existing API from the browser
+- Anything where content changes on a human schedule (hourly, daily) rather than per visitor
+
+## When you need a server
+
+Some things genuinely need code running on each request:
+
+- Pages personalized per visitor before they reach the browser
+- Secrets that must never be shipped to the client
+- Webhooks and anything that receives data from other services
+
+Even then, you can often keep the site static and move the dynamic part into a small function.
+
+```ts title="app/api-client.ts"
+export async function subscribe(email: string) {
+  const endpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+  if (!endpoint) throw new Error("No form endpoint configured");
+
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+
+  return response.ok;
+}
+```
+
+## The quiet benefits
+
+Static sites don't sleep, don't run out of memory under a traffic spike, and are trivial to roll back: every version is just a folder. That's a lot of peace of mind for very little effort.

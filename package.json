@@ -1,0 +1,37 @@
+{
+  "name": "template-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A fast, static Next.js blog starter with MDX, tags, search, RSS and dark mode.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "serve out",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@12.10.1",
+  "dependencies": {
+    "next": "16.4.5",
+    "next-mdx-remote": "6.0.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "rehype-pretty-code": "0.14.6",
+    "remark-gfm": "4.0.1",
+    "shiki": "4.6.0",
+    "gray-matter": "4.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "postcss": "8.5.32",
+    "serve": "14.2.7",
+    "tailwindcss": "4.3.5",
+    "typescript": "5.9.3"
+  }
+}

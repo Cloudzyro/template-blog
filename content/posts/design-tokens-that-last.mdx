@@ -1,0 +1,75 @@
+---
+title: "Design tokens that survive a redesign"
+date: "2026-10-28"
+description: "How to name, layer and ship design tokens so your next visual refresh is a config change instead of a rewrite."
+tags: ["Design systems", "CSS"]
+cover: "/covers/design-tokens.svg"
+coverAlt: "Abstract grid of colored blocks in red, ink and amber"
+featured: true
+---
+
+Every team I've worked with has rebuilt its color palette at least once. The teams that did it in an afternoon had one thing in common: their tokens described **intent**, not appearance.
+
+## Two layers are enough
+
+Most token setups that go wrong have either one layer (raw values used everywhere) or five (nobody can remember which one to use). Two layers cover nearly every case:
+
+1. **Primitives** hold the actual values: a scale of reds, a scale of grays, a type ramp.
+2. **Semantic tokens** point at primitives and describe a job: `surface`, `text-muted`, `accent`.
+
+Components only ever use the second layer.
+
+```css title="tokens.css"
+:root {
+  /* Primitives */
+  --red-500: oklch(0.62 0.19 33);
+  --ink-900: oklch(0.24 0.01 70);
+  --paper-50: oklch(0.96 0.02 85);
+
+  /* Semantic tokens */
+  --color-surface: var(--paper-50);
+  --color-text: var(--ink-900);
+  --color-accent: var(--red-500);
+}
+
+.dark {
+  --color-surface: var(--ink-900);
+  --color-text: var(--paper-50);
+}
+```
+
+Dark mode falls out of this for free: you swap what the semantic layer points at, and nothing else changes.
+
+## Name for the job, not the look
+
+A token called `--blue-button` becomes a lie the day the button turns green. A token called `--color-action` stays true. When you're stuck on a name, ask what would break if the value changed. That's the job.
+
+> If a token's name would need to change during a redesign, it's a primitive pretending to be semantic.
+
+## Generate, don't hand-copy
+
+Keep one source of truth and generate everything else from it. A tiny script is often enough:
+
+```ts title="scripts/build-tokens.ts"
+import { writeFileSync } from "node:fs";
+import tokens from "../tokens.json";
+
+const lines = Object.entries(tokens.semantic).map(
+  ([name, ref]) => `  --${name}: var(--${ref});`,
+);
+
+writeFileSync("src/styles/semantic.css", `:root {\n${lines.join("\n")}\n}\n`);
+console.log(`Wrote ${lines.length} tokens`);
+```
+
+Run it in your build step and commit the output, so reviewers can see exactly what changed.
+
+## A short checklist
+
+| Question | Good sign |
+| --- | --- |
+| Can a component use a primitive directly? | No, lint blocks it |
+| Does dark mode touch components? | No, only tokens |
+| How long does a palette swap take? | An afternoon |
+
+Tokens won't make a redesign painless, but they move the pain to one file. That's a trade worth making.

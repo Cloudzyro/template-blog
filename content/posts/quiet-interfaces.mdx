@@ -1,0 +1,46 @@
+---
+title: "Quiet interfaces"
+date: "2026-09-17"
+description: "Notes on designing screens that stay out of the way: fewer colors, honest motion and respect for attention."
+tags: ["Design", "Accessibility"]
+cover: "/covers/quiet-interfaces.svg"
+coverAlt: "Concentric circles on sage green with small amber and red dots"
+---
+
+Some interfaces shout. Every element competes for attention, badges pulse, and the eye never finds a place to rest. A quiet interface does the opposite: it lets the content lead and saves emphasis for the moments that matter.
+
+## Spend color like money
+
+Pick one accent and use it for the single most important action on a screen. Everything else can live in two or three neutrals. When everything is highlighted, nothing is.
+
+## Motion should explain, not decorate
+
+Good motion answers a question: where did that panel come from, what just changed? Anything else is noise, and for some people it's worse than noise. Respect the system setting:
+
+```css title="motion.css"
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+## Make focus visible
+
+A quiet design is not an invisible one. Keyboard users need to see where they are, so give focus a clear, high-contrast ring instead of removing outlines.
+
+```css
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+```
+
+## A test you can run today
+
+Open your busiest screen, squint until the text blurs, and ask what stands out. If it's not the thing people came to do, turn something down.
