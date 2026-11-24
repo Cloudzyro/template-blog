@@ -26,10 +26,10 @@ export function Newsletter() {
   }
 
   return (
-    <section aria-labelledby="newsletter-title" className="rounded-3xl bg-ink px-6 py-10 text-paper sm:px-10 dark:bg-night-2 dark:text-moon">
+    <section aria-labelledby="newsletter-title" className="rounded-2xl bg-ink px-6 py-10 text-paper sm:px-10 dark:bg-night-2 dark:text-moon">
       <div className="grid gap-6 md:grid-cols-2 md:items-center">
         <div>
-          <h2 id="newsletter-title" className="font-display text-3xl font-semibold tracking-tight">
+          <h2 id="newsletter-title" className="font-display text-3xl font-medium tracking-tight">
             {site.newsletter.title}
           </h2>
           <p className="mt-2 text-paper/75 dark:text-moon-soft">{site.newsletter.text}</p>
@@ -50,12 +50,12 @@ export function Newsletter() {
                 type="email"
                 required
                 placeholder="you@example.com"
-                className="h-12 min-w-0 flex-1 rounded-full bg-paper px-5 text-ink placeholder:text-ink-soft/70"
+                className="h-12 min-w-0 flex-1 rounded-lg bg-paper px-5 text-ink placeholder:text-ink-soft/70"
               />
               <button
                 type="submit"
                 disabled={state === "sending"}
-                className="h-12 rounded-full bg-accent px-6 font-semibold text-accent-ink transition hover:brightness-110 disabled:opacity-60"
+                className="h-12 rounded-lg bg-accent px-6 font-medium text-accent-ink transition-colors duration-150 hover:brightness-110 disabled:opacity-60"
               >
                 {state === "sending" ? "Subscribing" : "Subscribe"}
               </button>
@@ -71,7 +71,7 @@ export function Newsletter() {
             <p>The sign-up form isn&apos;t connected yet. Until it is, you can ask to be added by email.</p>
             <a
               href={`mailto:${site.author.email}?subject=${encodeURIComponent("Add me to the newsletter")}`}
-              className="mt-4 inline-flex h-11 items-center rounded-full bg-accent px-5 font-semibold text-accent-ink transition hover:brightness-110"
+              className="mt-4 inline-flex h-11 items-center rounded-lg bg-accent px-5 font-medium text-accent-ink transition-colors duration-150 hover:brightness-110"
             >
               Email {site.author.name.split(" ")[0]}
             </a>

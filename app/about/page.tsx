@@ -15,8 +15,8 @@ export default function AboutPage() {
       <div className="grid gap-10 md:grid-cols-[220px_1fr] md:gap-16">
         <Image src={site.author.avatar} alt={`Illustration representing ${site.author.name}`} width={220} height={220} className="w-40 rounded-full md:w-full" priority />
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent dark:text-ember">About</p>
-          <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight sm:text-6xl">Hi, I&apos;m {site.author.name.split(" ")[0]}.</h1>
+          <p className="text-sm text-accent dark:text-ember">About</p>
+          <h1 className="mt-3 font-display text-5xl font-medium tracking-tight sm:text-6xl">{site.author.name}</h1>
           <p className="mt-3 text-ink-soft dark:text-moon-soft">
             {site.author.role}, based in {site.author.location}.
           </p>
@@ -28,7 +28,7 @@ export default function AboutPage() {
           <ul className="mt-8 flex flex-wrap gap-3">
             {site.author.links.map((l) => (
               <li key={l.label}>
-                <a href={l.href} className="inline-flex h-10 items-center rounded-full border border-rule px-4 text-sm font-semibold transition hover:border-accent hover:text-accent dark:border-night-rule dark:hover:border-ember dark:hover:text-ember">
+                <a href={l.href} className="inline-flex h-10 items-center rounded-lg border border-rule px-4 text-sm font-medium transition-colors duration-150 hover:border-accent hover:text-accent dark:border-night-rule dark:hover:border-ember dark:hover:text-ember">
                   {l.label}
                 </a>
               </li>

@@ -11,13 +11,13 @@ export function PostList({ posts }: { posts: PostMeta[] }) {
             {String(i + 1).padStart(2, "0")}
           </span>
           <div>
-            <h3 className="font-display text-2xl font-semibold leading-snug tracking-tight">
+            <h3 className="font-display text-2xl font-medium leading-snug tracking-tight">
               <Link href={`/posts/${post.slug}/`} className="hover:text-accent dark:hover:text-ember">
                 {post.title}
               </Link>
             </h3>
             <p className="mt-2 max-w-2xl text-ink-soft dark:text-moon-soft">{post.description}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
               {post.tags.map((t) => (
                 <Tag key={t} name={t} />
               ))}

@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-rule dark:border-night-rule">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 text-sm text-ink-soft sm:flex-row sm:items-center sm:justify-between sm:px-8 dark:text-moon-soft">
         <p>
-          &copy; {new Date().getFullYear()} {site.author.name}. {site.tagline}
+          &copy; {new Date().getFullYear()} {site.author.name}. {site.tagline}.
         </p>
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
           <li>

@@ -33,10 +33,10 @@ export default async function TagPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-6xl px-5 pt-14 sm:px-8 sm:pt-20">
-      <Link href="/tags/" className="text-sm font-semibold text-accent dark:text-ember">
+      <Link href="/tags/" className="text-sm font-medium text-accent dark:text-ember">
         All topics
       </Link>
-      <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight sm:text-6xl">{found.name}</h1>
+      <h1 className="mt-3 font-display text-5xl font-medium tracking-tight sm:text-6xl">{found.name}</h1>
       <p className="mb-10 mt-4 text-lg text-ink-soft dark:text-moon-soft">
         {posts.length} {posts.length === 1 ? "post" : "posts"} on this topic.
       </p>

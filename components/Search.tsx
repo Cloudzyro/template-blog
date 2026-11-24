@@ -54,7 +54,7 @@ export function Search({ items }: { items: SearchItem[] }) {
       <button
         type="button"
         onClick={open}
-        className="flex h-10 items-center gap-2 rounded-full border border-rule px-3 text-sm text-ink-soft transition hover:border-ink-soft hover:text-ink sm:pr-2 dark:border-night-rule dark:text-moon-soft dark:hover:text-moon"
+        className="flex h-10 items-center gap-2 rounded-lg border border-rule px-3 text-sm text-ink-soft transition-colors duration-150 hover:border-ink-soft hover:text-ink sm:pr-2 dark:border-night-rule dark:text-moon-soft dark:hover:text-moon"
         aria-label="Search posts"
       >
         <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -102,9 +102,9 @@ export function Search({ items }: { items: SearchItem[] }) {
               <Link
                 href={`/posts/${item.slug}/`}
                 onClick={close}
-                className="block rounded-xl px-3 py-3 transition hover:bg-paper-2 focus-visible:bg-paper-2 dark:hover:bg-night dark:focus-visible:bg-night"
+                className="block rounded-xl px-3 py-3 transition-colors duration-150 hover:bg-paper-2 focus-visible:bg-paper-2 dark:hover:bg-night dark:focus-visible:bg-night"
               >
-                <span className="block font-display text-lg font-semibold leading-snug">{item.title}</span>
+                <span className="block font-display text-lg font-medium leading-snug">{item.title}</span>
                 <span className="mt-1 block text-xs text-ink-soft dark:text-moon-soft">
                   {item.date} &middot; {item.tags.join(", ")}
                 </span>

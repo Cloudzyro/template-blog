@@ -23,7 +23,7 @@ export function CodeBlock(props: ComponentProps<"pre">) {
       <button
         type="button"
         onClick={copy}
-        className="absolute right-2.5 top-2.5 rounded-md border border-rule bg-paper/90 px-2.5 py-1 font-sans text-xs font-medium text-ink-soft opacity-100 transition hover:text-ink sm:opacity-0 sm:group-hover:opacity-100 sm:focus-visible:opacity-100 dark:border-night-rule dark:bg-night-2/90 dark:text-moon-soft dark:hover:text-moon"
+        className="absolute right-2.5 top-2.5 rounded-md border border-rule bg-paper/90 px-2.5 py-1 font-sans text-xs font-medium text-ink-soft opacity-100 transition-colors duration-150 hover:text-ink sm:opacity-0 sm:group-hover:opacity-100 sm:focus-visible:opacity-100 dark:border-night-rule dark:bg-night-2/90 dark:text-moon-soft dark:hover:text-moon"
         aria-label={copied ? "Code copied" : "Copy code"}
       >
         {copied ? "Copied" : "Copy"}

@@ -3,7 +3,7 @@
 
 export const site = {
   name: "Marginalia",
-  tagline: "Notes on building for the web, written slowly.",
+  tagline: "Notes on building for the web, written slowly",
   description:
     "A small, independent blog about web development, design systems and the craft of shipping software that lasts.",
   // Set this to your real address before you deploy. It's used for RSS, the sitemap and social cards.

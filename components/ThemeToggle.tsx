@@ -16,7 +16,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="grid size-10 place-items-center rounded-full text-ink-soft transition hover:bg-paper-2 hover:text-ink dark:text-moon-soft dark:hover:bg-night-2 dark:hover:text-moon"
+      className="grid size-10 place-items-center rounded-lg text-ink-soft transition-colors duration-150 hover:bg-paper-2 hover:text-ink dark:text-moon-soft dark:hover:bg-night-2 dark:hover:text-moon"
       aria-label="Toggle dark mode"
     >
       <svg className="size-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">

@@ -7,10 +7,7 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
   return (
     <header className="border-b border-rule dark:border-night-rule">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4 sm:px-8">
-        <Link href="/" className="flex items-center gap-2.5 font-display text-xl font-semibold tracking-tight">
-          <span className="grid size-8 place-items-center rounded-lg bg-accent font-sans text-sm font-bold text-accent-ink" aria-hidden="true">
-            {site.name.charAt(0)}
-          </span>
+        <Link href="/" className="font-display text-xl font-medium tracking-tight">
           {site.name}
         </Link>
         <nav aria-label="Main" className="flex items-center gap-1 sm:gap-2">
@@ -19,7 +16,7 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="rounded-full px-3 py-2 text-sm font-medium text-ink-soft transition hover:text-ink dark:text-moon-soft dark:hover:text-moon"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors duration-150 hover:text-ink dark:text-moon-soft dark:hover:text-moon"
                 >
                   {item.label}
                 </Link>
@@ -34,7 +31,7 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
         <ul className="flex justify-center gap-1 px-4 py-1.5">
           {site.nav.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className="block rounded-full px-3 py-1.5 text-sm font-medium text-ink-soft dark:text-moon-soft">
+              <Link href={item.href} className="block rounded-lg px-3 py-1.5 text-sm font-medium text-ink-soft dark:text-moon-soft">
                 {item.label}
               </Link>
             </li>
